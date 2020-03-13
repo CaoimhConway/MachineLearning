@@ -138,10 +138,6 @@ class DigitClassificationModel(object):
         """
         Runs the model for a batch of examples.
 
-        Your model should predict a node with shape (batch_size x 10),
-        containing scores. Higher scores correspond to greater probability of
-        the image belonging to a particular class.
-
         Inputs:
             x: a node with shape (batch_size x 784)
         Output:
@@ -244,7 +240,7 @@ class LanguageIDModel(object):
         
         for node in xs[1:]:
             first = nn.ReLU(nn.Add(nn.Linear(node, self.weight), nn.Linear(first, self.weight_h)))
-            
+
         return nn.Linear(first, self.weight_f)
 
 
